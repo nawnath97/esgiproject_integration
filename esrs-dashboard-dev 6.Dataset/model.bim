@@ -52,20 +52,20 @@
           }
         ],
         "expression": [
-          "let\r",
-          "Source = #\"ESG Global Company\",\r",
-          "  #\"Detected Type Mismatches\" = let\r",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),\r",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),\r",
-          "    fieldNames = Record.FieldNames(recordTypeFields),\r",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),\r",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})\r",
-          "in\r",
-          "    Table.TransformColumns(Source, pairs),\r",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),\r",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"}),\r",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"})\r",
-          "in\r",
+          "let",
+          "Source = #\"ESG Global Company\",",
+          "  #\"Detected Type Mismatches\" = let",
+          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
+          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
+          "    fieldNames = Record.FieldNames(recordTypeFields),",
+          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
+          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
+          "in",
+          "    Table.TransformColumns(Source, pairs),",
+          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
+          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"}),",
+          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"})",
+          "in",
           "  #\"Reordered Columns\""
         ],
         "kind": "m",
@@ -85,20 +85,20 @@
           }
         ],
         "expression": [
-          "let\r",
-          "Source = #\"ESG Global Company\",\r",
-          "  #\"Detected Type Mismatches\" = let\r",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),\r",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),\r",
-          "    fieldNames = Record.FieldNames(recordTypeFields),\r",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),\r",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})\r",
-          "in\r",
-          "    Table.TransformColumns(Source, pairs),\r",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),\r",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"}),\r",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"})\r",
-          "in\r",
+          "let",
+          "Source = #\"ESG Global Company\",",
+          "  #\"Detected Type Mismatches\" = let",
+          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
+          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
+          "    fieldNames = Record.FieldNames(recordTypeFields),",
+          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
+          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
+          "in",
+          "    Table.TransformColumns(Source, pairs),",
+          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
+          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"}),",
+          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"Name\", \"Data\", \"Schema\", \"Item\", \"Kind\", \"SEC/NON-SEC\", \"SN Index\"})",
+          "in",
           "  #\"Reordered Columns\""
         ],
         "kind": "m",
@@ -201,6 +201,10 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
@@ -1204,15 +1208,15 @@
               }
             ],
             "expression": [
-              "\r",
-              "SWITCH (\r",
-              "    TRUE (),\r",
-              "    ISFILTERED ( Baseline )\r",
-              "        && VALUES ( 'ESG Global Company'[GlobalCompanyId] ) IN VALUES ( Baseline[GID] ), 1,\r",
-              "    ISFILTERED ( Peer )\r",
-              "        && VALUES ( 'ESG Global Company'[GlobalCompanyId] ) IN VALUES ( Peer[GID] ), 1,\r",
-              "    0\r",
-              ")\r",
+              "",
+              "SWITCH (",
+              "    TRUE (),",
+              "    ISFILTERED ( Baseline )",
+              "        && VALUES ( 'ESG Global Company'[GlobalCompanyId] ) IN VALUES ( Baseline[GID] ), 1,",
+              "    ISFILTERED ( Peer )",
+              "        && VALUES ( 'ESG Global Company'[GlobalCompanyId] ) IN VALUES ( Peer[GID] ), 1,",
+              "    0",
+              ")",
               ""
             ],
             "formatString": "0",
@@ -1643,31 +1647,6 @@
             "lineageTag": "6685a706-9d55-4eca-a68c-6176be5f1e0c",
             "sourceColumn": "TargetSequence",
             "summarizeBy": "none"
-          },
-          {
-            "name": "TargetCountColumn",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "436ba87b-9c83-4389-a31b-ebd06a36be98",
-                "value": "{\"Expression\":\"\\nCALCULATE(\\n    COUNTROWS(\\n        VALUES('GHG_Targets'[TargetSequence])\\n    ),\\n    FILTER(\\n        'GHG_Targets',\\n        'ESG Global Company'[Company_name] = SELECTEDVALUE('ESG Global Company'[CompanyName])\\n&& 'GHG_Targets'[ReportedYear] = SELECTEDVALUE('GHG_Targets'[ReportedYear])\\n&& 'GHG_Targets'[KPI] <> \\\"Type of Targets in Reporting Year\\\"\\n    )\\n)\"}"
-              },
-              {
-                "name": "277cc1b9-af89-4597-8e15-cacc25c0886b",
-                "value": [
-                  "A circular dependency was detected: GHG_Targets[Column].",
-                  ""
-                ]
-              }
-            ],
-            "dataType": "int64",
-            "isDataTypeInferred": true,
-            "lineageTag": "19f8c679-215c-4769-82d4-1c98c0e0ba75",
-            "summarizeBy": "sum",
-            "type": "calculated"
           }
         ],
         "lineageTag": "0890ff33-5a06-45d0-977e-5b92401fc54a",
@@ -1689,11 +1668,10 @@
               "        'GHG_Targets',",
               "        'ESG Global Company'[Company_name] = SELECTEDVALUE('ESG Global Company'[CompanyName])",
               "&& 'GHG_Targets'[ReportedYear] = SELECTEDVALUE('GHG_Targets'[ReportedYear])",
-              "&& 'GHG_Targets'[KPI] <> \"Type of Targets in Reporting Year\"",
+              "&& 'GHG_Targets'[KPI] <> \"Type of Target in Reporting Year\"",
               "    )",
               ")"
             ],
-            "formatString": "0",
             "lineageTag": "683ef8e4-38a7-4817-92de-23e7f1836ee7"
           },
           {
@@ -1708,67 +1686,6 @@
               "    )"
             ],
             "lineageTag": "d29f374d-2db3-44c5-a205-f68b6a25445c"
-          },
-          {
-            "name": "No_data",
-            "expression": "if(ISBLANK(MAX(GHG_Targets[FieldValue])),\"*\",MAX(GHG_Targets[FieldValue]))",
-            "lineageTag": "da3d995f-ff5e-4328-b80c-1f841f2b05e1"
-          },
-          {
-            "name": "No_KPI",
-            "expression": "if(ISBLANK(MAX(GHG_Targets[KPI])),\"*\",MAX(GHG_Targets[KPI]))",
-            "lineageTag": "11c383f1-9b4a-4dd0-a3f7-3df30fb33ae8"
-          },
-          {
-            "name": "SingleTarget",
-            "expression": [
-              "",
-              "var SelectedCompany = SELECTEDVALUE('ESG Global Company'[CompanyName])",
-              "var TargetCount = ",
-              "CALCULATE(",
-              "    COUNTROWS(",
-              "        VALUES('GHG_Targets'[TargetSequence])",
-              "    ),",
-              "    FILTER(",
-              "        'GHG_Targets',",
-              "        'ESG Global Company'[Company_name] = SelectedCompany",
-              "&& 'GHG_Targets'[ReportedYear] = SELECTEDVALUE('GHG_Targets'[ReportedYear])",
-              "&& 'GHG_Targets'[KPI] <> \"Type of Targets in Reporting Year\"",
-              "    )",
-              ")",
-              "return",
-              "IF(TargetCount = 1, 1,0)"
-            ],
-            "formatString": "0",
-            "lineageTag": "00be7364-edfa-4568-bc3e-7cfd7b311c62"
-          },
-          {
-            "name": "SelectedTCount",
-            "expression": "int(ALLSELECTED(targetc]))",
-            "lineageTag": "b437431e-e675-432d-9e52-3800c254be85"
-          },
-          {
-            "name": "MultiTarget",
-            "expression": [
-              "",
-              "var SelectedCompany = SELECTEDVALUE('ESG Global Company'[CompanyName])",
-              "var TargetCount = ",
-              "CALCULATE(",
-              "    COUNTROWS(",
-              "        VALUES('GHG_Targets'[TargetSequence])",
-              "    ),",
-              "    FILTER(",
-              "        'GHG_Targets',",
-              "        'ESG Global Company'[Company_name] = SelectedCompany",
-              "&& 'GHG_Targets'[ReportedYear] = SELECTEDVALUE('GHG_Targets'[ReportedYear])",
-              "&& 'GHG_Targets'[KPI] <> \"Type of Targets in Reporting Year\"",
-              "    )",
-              ")",
-              "return",
-              "IF(TargetCount > 1, 1,0)"
-            ],
-            "formatString": "0",
-            "lineageTag": "9fb90dc4-5455-4b10-acde-aedded247e51"
           }
         ],
         "partitions": [
