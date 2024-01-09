@@ -1,9 +1,0 @@
-{
-  "version": "1.0",
-  "datasetReference": {
-    "byPath": {
-      "path": "../esrs-dashboard-dev 6.Dataset"
-    },
-    "byConnection": null
-  }
-}
